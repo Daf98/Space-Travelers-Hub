@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#logo {
+  width: 6%;
+  height: 6%;
+}
+
+.navLinks {
+  display: flex;
+  gap: 0.5rem;
+}

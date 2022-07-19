@@ -2,21 +2,22 @@
 const SPACE_MISSIONS = 'SpaceTravelers/Missions/SPACE_MISSIONS';
 const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
 
-// initial states
-const initialState = [];
-
 // Action creators
-const reserveMission = (id, status) => ({
+const reserveMissions = (id, status) => ({
   type: RESERVATION,
-  mission: { id, status: Boolean(Number(status)) },
+  mission: {
+    id,
+    status: Boolean(Number(status)),
+  },
 });
 
-const spaceMission = (data) => ({
+const spaceMissions = (data) => ({
   type: SPACE_MISSIONS,
   payload: data,
 });
 
-// get mission state
+// initial states
+const initialState = [];
 
 // reducer
 const missionsReducer = (state = initialState, action) => {
@@ -38,4 +39,8 @@ const missionsReducer = (state = initialState, action) => {
   }
 };
 
-export default { missionsReducer, reserveMission, spaceMission };
+export default {
+  missionsReducer,
+  reserveMissions,
+  spaceMissions,
+};

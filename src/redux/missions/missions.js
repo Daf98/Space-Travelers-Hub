@@ -6,7 +6,7 @@ const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
 const initialState = [];
 
 // Action creators
-const participateMission = (id, status) => ({
+const reserveMission = (id, status) => ({
   type: RESERVATION,
   mission: { id, status: Boolean(Number(status)) },
 });
@@ -19,7 +19,7 @@ const spaceMission = (data) => ({
 // get mission state
 
 // reducer
-const missions = (state = initialState, action) => {
+const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SPACE_MISSIONS:
       return [...state, action.data];
@@ -38,4 +38,4 @@ const missions = (state = initialState, action) => {
   }
 };
 
-export default { missions, participateMission, spaceMission };
+export default { missionsReducer, reserveMission, spaceMission };

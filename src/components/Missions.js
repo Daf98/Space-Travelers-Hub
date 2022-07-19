@@ -7,8 +7,8 @@ const Missions = () => {
   const Missions = useSelector((state) => state.Missions);
 
   return (
-    <table>
-      <thead>
+    <table className="table">
+      <thead className="table-head">
         <tr>
           <th>Mission</th>
           <th>Description</th>
@@ -16,7 +16,7 @@ const Missions = () => {
           <th label="Empty" />
         </tr>
       </thead>
-      <tbody>
+      <tbody className="table-body">
         {Missions.map((mission) => (
           <Mission
             key={mission.id}

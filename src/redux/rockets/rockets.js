@@ -1,6 +1,6 @@
 // Actions
-const ROCKETS_FETCHED = 'space-travelers-hub/rockets/ROCKETS_FETCHED';
-const ROCKETS_RESERVED = 'space-travelers-hub/rockets/ROCKETS_RESERVED';
+const ROCKETS_FETCHED = "space-travelers-hub/rockets/ROCKETS_FETCHED";
+const ROCKETS_RESERVED = "space-travelers-hub/rockets/ROCKETS_RESERVED";
 
 // Make actions creators
 const fetchRocket = (payload) => ({
@@ -8,9 +8,10 @@ const fetchRocket = (payload) => ({
   payload,
 });
 
-const reserveRocket = (status) => ({
+const reserveRocket = (payload) => ({
   type: ROCKETS_RESERVED,
-  payload: status,
+  status: payload.active,
+  id: payload.id,
 });
 
 const initialState = [];
@@ -21,7 +22,13 @@ const rocketsReducer = (state = initialState, action) => {
     case ROCKETS_FETCHED:
       return action.payload;
     case ROCKETS_RESERVED:
-      return action.payload;
+      if (action.status) {
+        action.status = false;
+      } else {
+        action.status = true;
+      }
+      console.log(action.status);
+      return action.status;
     default:
       return state;
   }

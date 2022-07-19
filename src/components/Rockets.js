@@ -1,7 +1,8 @@
 import React from 'react';
 
-const Rockets = () => (
-  <p>Rockets</p>
-);
+const Rockets = () => {
+return (<p>Rockets</p>)
+  
+};
 
 export default Rockets;

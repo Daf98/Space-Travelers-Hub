@@ -1,15 +1,13 @@
+import { useDispatch } from "react-redux/es/exports";
 const baseURL = 'https://api.spacexdata.com/v3/';
+const dispatch = useDispatch;
 // fetch data from API and move it to store
 const fetchRocketsFromAPI = () => async () => {
   const data = await fetch(`${baseURL}/rockets/`);
   const response = await data.json();
-  return response;
+  console.log(response);
 };
 
-const fetchMissionsFromAPI = async () => {
-  const response = await fetch(`${baseURL}/missions/`);
-  const missionsData = await response.json();
-  return missionsData;
-};
+dispatch(fetchRocketsFromAPI());
 
-export { fetchRocketsFromAPI, fetchMissionsFromAPI };
+export { fetchRocketsFromAPI };

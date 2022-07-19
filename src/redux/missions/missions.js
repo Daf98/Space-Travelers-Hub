@@ -3,7 +3,7 @@ const SPACE_MISSIONS = 'SpaceTravelers/Missions/SPACE_MISSIONS';
 const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
 
 // Action creators
-const reserveMissions = (id, status) => ({
+export const reserveMissions = (id, status) => ({
   type: RESERVATION,
   mission: {
     id,
@@ -11,7 +11,7 @@ const reserveMissions = (id, status) => ({
   },
 });
 
-const spaceMissions = (data) => ({
+export const spaceMissions = (data) => ({
   type: SPACE_MISSIONS,
   payload: data,
 });
@@ -39,8 +39,4 @@ const missionsReducer = (state = initialState, action) => {
   }
 };
 
-export default {
-  missionsReducer,
-  reserveMissions,
-  spaceMissions,
-};
+export default missionsReducer;

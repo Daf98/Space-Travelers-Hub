@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navTitle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#logo {
+  width: 6%;
+  height: 6%;
+}
+
+.navLinks {
+  display: flex;
+  gap: 0.5rem;
+}
+
+a {
+  color: var(--blue);
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+#separator {
+  border-right: 1px solid black;
+}
+
+#horizontal {
+  width: 100%;
+  height: 2px;
+  background: #e8e8e8;
+  margin-top: 0.5rem;
+}

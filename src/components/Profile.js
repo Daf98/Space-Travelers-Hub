@@ -10,11 +10,19 @@ const Profile = () => {
       <div className="profile-container">
         <div className="profile-missions">
           <h2>My Missions</h2>
-          {reservedRockets.map((rocket) => (
-            <p key={rocket.id}>{rocket.name}</p>
-          ))}
         </div>
-        <h2>My Rockets</h2>
+        <div className="profile-rockets">
+          <h2>My Rockets</h2>
+          {reservedRockets.length ? (
+            <div className="reservation-container">
+              {reservedRockets.map((rocket) => (
+                <p id="reserved-rocket" key={rocket.id}>
+                  {rocket.name}
+                </p>
+              ))}
+            </div>
+          ) : null}
+        </div>
       </div>
     </>
   );

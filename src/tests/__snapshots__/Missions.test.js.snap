@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest Snapshot testing suite Matches DOM Snapshot 1`] = `
+<table
+  class="table"
+>
+  <thead
+    class="table-head"
+  >
+    <tr>
+      <th>
+        Mission
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Status
+      </th>
+      <th>
+        <div />
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class="table-body"
+  />
+</table>
+`;

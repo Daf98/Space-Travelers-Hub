@@ -1,0 +1,44 @@
+.rocket-container {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.rocket-image {
+  height: 23%;
+  width: 25%;
+  padding-bottom: 1.5rem;
+}
+
+.rocket-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  line-height: 20px;
+}
+
+.reserve-btn,
+.cancel-btn {
+  border: none;
+  background-color: #157efb;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 3px;
+}
+
+.cancel-btn {
+  background-color: white;
+  color: #71797e;
+  border: 1px solid #71797e;
+}
+
+#badge {
+  background-color: #27a0b8;
+  color: white;
+  font-weight: bold;
+  border-radius: 3px;
+  font-size: 13px;
+  padding: 0.1rem 0.3rem;
+  margin-right: 0.5rem;
+}

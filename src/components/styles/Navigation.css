@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -36,5 +36,5 @@ a {
   width: 100%;
   height: 2px;
   background: #e8e8e8;
-  margin-top: 0.5rem;
+  margin: 0.5rem auto;
 }

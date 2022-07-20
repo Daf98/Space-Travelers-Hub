@@ -1,41 +1,67 @@
 // Actions
 const SPACE_MISSIONS = 'SpaceTravelers/Missions/SPACE_MISSIONS';
-const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
-
-// initial states
-const initialState = [];
+const MISSIONS_RESERVED = 'space-travelers-hub/rockets/MISSIONS_RESERVED';
+const MISSIONS_CANCELLED = 'space-travelers-hub/rockets/MISSIONS_CANCELLED';
+// url
+const URL = 'https://api.spacexdata.com/v3';
 
 // Action creators
-const reserveMission = (id, status) => ({
-  type: RESERVATION,
-  mission: { id, status: Boolean(Number(status)) },
+
+export const reserveMission = (id) => ({
+  type: MISSIONS_RESERVED,
+  id,
 });
 
-const spaceMission = (data) => ({
+export const cancelMission = (id) => ({
+  type: MISSIONS_CANCELLED,
+  id,
+});
+
+export const getMissions = (missions) => ({
   type: SPACE_MISSIONS,
-  payload: data,
+  missions,
 });
 
-// get mission state
+// get missions from the API
+export const fetchMissions = () => async (dispatch) => {
+  const data = await fetch(`${URL}/missions/`);
+  const response = await data.json();
+  dispatch(
+    getMissions(
+      response.map((mission) => ({
+        id: mission.mission_id,
+        name: mission.mission_name,
+        description: mission.description,
+        reserved: false,
+      })),
+    ),
+  );
+};
 
+const initialState = [];
+let resState;
 // reducer
 const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SPACE_MISSIONS:
-      return [...state, action.data];
+      return action.missions;
 
-    case RESERVATION:
-      return [
-        ...state.map((mission) => {
-          if (mission.mission_id === action.mission.id) {
-            return { ...mission, reserved: action.mission.status };
-          }
-          return mission;
-        }),
-      ];
+    case MISSIONS_RESERVED:
+      resState = state.map((item) => {
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: true };
+      });
+      return resState;
+    case MISSIONS_CANCELLED:
+      resState = state.map((item) => {
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: false };
+      });
+      return resState;
+
     default:
       return state;
   }
 };
 
-export default { missionsReducer, reserveMission, spaceMission };
+export default missionsReducer;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest Snapshot testing suite Matches DOM Snapshot 1`] = `
+<div
+  class="profile-container"
+>
+  <div
+    class="profile-missions"
+  >
+    <h2>
+      My Missions
+    </h2>
+  </div>
+  <div
+    class="profile-rockets"
+  >
+    <h2>
+      My Rockets
+    </h2>
+  </div>
+</div>
+`;

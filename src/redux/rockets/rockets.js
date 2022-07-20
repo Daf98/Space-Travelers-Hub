@@ -1,6 +1,7 @@
 // Actions
 const ROCKETS_FETCHED = 'space-travelers-hub/rockets/ROCKETS_FETCHED';
 const ROCKETS_RESERVED = 'space-travelers-hub/rockets/ROCKETS_RESERVED';
+const ROCKETS_CANCELLED = 'space-travelers-hub/rockets/ROCKETS_CANCELLED';
 
 // Make actions creators
 const fetchRocket = (payload) => ({
@@ -8,31 +9,40 @@ const fetchRocket = (payload) => ({
   payload,
 });
 
-const reserveRocket = (status) => ({
+const reserveRocket = (id) => ({
   type: ROCKETS_RESERVED,
-  payload: status,
+  id,
+});
+
+const cancelRocket = (id) => ({
+  type: ROCKETS_CANCELLED,
+  id,
 });
 
 const initialState = [];
+let resState;
 
 // Make reducer
 const rocketsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ROCKETS_FETCHED:
-      return [...state, action.payload];
-
+      return action.payload;
     case ROCKETS_RESERVED:
-      return [
-        ...state.map((mission) => {
-          if (mission.mission_id === action.mission.id) {
-            return { ...mission, reserved: action.mission.status };
-          }
-          return mission;
-        }),
-      ];
+      resState = state.map((item) => {
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: true };
+      });
+      return resState;
+    case ROCKETS_CANCELLED:
+      resState = state.map((item) => {
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: false };
+      });
+      return resState;
     default:
       return state;
   }
 };
 
-export default { rocketsReducer, fetchRocket, reserveRocket };
+export default rocketsReducer;
+export { fetchRocket, reserveRocket, cancelRocket };

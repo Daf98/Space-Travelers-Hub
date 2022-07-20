@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   cancelMission,
   fetchMissions,
-  reserveMission
+  reserveMission,
 } from '../redux/missions/missions';
 import './styles/Missions.css';
 
@@ -40,7 +40,7 @@ const Missions = () => {
 
             <td>
               <span className={mission.reserved ? 'activeMember' : 'notMember'}>
-                {mission.reserved ? 'Active Member' : 'Not A Member'}
+                {mission.reserved ? 'Active Member' : 'NOT A MEMBER'}
               </span>
             </td>
 

@@ -1,0 +1,21 @@
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reservation-container {
+  border: 1px solid #8c8c8e;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}
+
+#reserved-rockets,
+#reserved-missions {
+  border-top: 1px solid #8c8c8e;
+  padding: 1rem;
+}
+
+#reserved-rockets:nth-child(1),
+#reserved-missions:nth-child(1) {
+  border-top: none;
+}

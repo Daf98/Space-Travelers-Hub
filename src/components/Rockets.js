@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import fetchRocketsFromAPI from '../redux/api';
 import { reserveRocket, cancelRocket } from '../redux/rockets/rockets';
 import './styles/Rockets.css';
+import fetchRocketsFromAPI from '../redux/api';
 
 const Rockets = () => {
   const dispatch = useDispatch();
   const rockets = useSelector((state) => state.Rockets);
   useEffect(() => {
-    dispatch(fetchRocketsFromAPI());
+    if (!rockets.length) {
+      dispatch(fetchRocketsFromAPI());
+    }
   }, []);
   return (
     <div>
@@ -20,12 +22,14 @@ const Rockets = () => {
             alt="Rocket"
           />
           <div className="rocket-description">
-            <h1 id={rocket.id}>{rocket.name}</h1>
-            {rocket.reserved ? <p>Reserved</p> : null}
-            <p>{rocket.description}</p>
+            <h2 id={rocket.id}>{rocket.name}</h2>
+            <p className="reserved-container">
+              {rocket.reserved ? <span id="badge">Reserved</span> : null}
+              {rocket.description}
+            </p>
             {(rocket.reserved)
-              ? (<button type="button" id={rocket.id} onClick={() => dispatch(cancelRocket(rocket.id))}>Cancel reservation</button>)
-              : (<button type="button" id={rocket.id} onClick={() => dispatch(reserveRocket(rocket.id))}>Reserve rocket</button>)}
+              ? (<button className="cancel-btn" type="button" id={rocket.id} onClick={() => dispatch(cancelRocket(rocket.id))}>Cancel reservation</button>)
+              : (<button className="reserve-btn" type="button" id={rocket.id} onClick={() => dispatch(reserveRocket(rocket.id))}>Reserve rocket</button>)}
           </div>
         </div>
       ))}

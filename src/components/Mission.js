@@ -1,6 +1,5 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
-import reserveMissions from '../redux/missions/missions';
+import { reserveMissions } from '../redux/missions/missions';
 
 const Mission = (prop) => {
   const { mission, id, reserved } = prop;
@@ -13,48 +12,50 @@ const Mission = (prop) => {
   };
 
   return (
-    <tr id="table-content-row">
-      <td className="mission-title">{mission.mission_name}</td>
-      <td className="mission-description">{mission.description}</td>
+    <>
+      <tr id="table-content-row">
+        <td className="mission-title">{mission.mission_name}</td>
+        <td className="mission-description">{mission.description}</td>
 
-      <td>
-        {reserved ? (
-          <button type="button" className="active-member">
-            Active Member
-          </button>
-        ) : (
-          <button type="button" className="not-member">
-            Not a Member
-          </button>
-        )}
-      </td>
+        <td className="participation-status">
+          {reserved ? (
+            <button type="button" className="active-member">
+              Active Member
+            </button>
+          ) : (
+            <button type="button" className="not-member">
+              Not a Member
+            </button>
+          )}
+        </td>
 
-      <td>
-        {reserved ? (
-          <button
-            type="button"
-            className="leave-mission"
-            mission_id={id}
-            data_id={id}
-            data-reserved={0}
-            onClick={handleReserved}
-          >
-            Leave Mission
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="join-mission"
-            mission_id={id}
-            data_id={id}
-            data-reserved={1}
-            onClick={handleReserved}
-          >
-            Join Mission
-          </button>
-        )}
-      </td>
-    </tr>
+        <td>
+          {reserved ? (
+            <button
+              type="button"
+              className="leave-mission"
+              id={id}
+              data_id={id}
+              data-reserved={0}
+              onClick={handleReserved}
+            >
+              Leave Mission
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="join-mission"
+              id={id}
+              data_id={id}
+              data-reserved={1}
+              onClick={handleReserved}
+            >
+              Join Mission
+            </button>
+          )}
+        </td>
+      </tr>
+    </>
   );
 };
 

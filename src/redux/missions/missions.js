@@ -11,10 +11,16 @@ export const reserveMissions = (id, status) => ({
   },
 });
 
-export const spaceMissions = (data) => ({
-  type: SPACE_MISSIONS,
-  payload: data,
-});
+// get missions from the API
+// side effects, only as applicable
+// e.g. thunks, epics, etc
+export const getMissions = () => async (dispatch) => {
+  fetch('https://api.spacexdata.com/v3/missions')
+    .then((data) => data.json())
+    .then((data) => {
+      dispatch({ type: SPACE_MISSIONS, data });
+    });
+};
 
 // initial states
 const initialState = [];

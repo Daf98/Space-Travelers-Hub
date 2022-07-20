@@ -21,7 +21,7 @@ const rocketsReducer = (state = initialState, action) => {
     case ROCKETS_FETCHED:
       return [...state, action.data];
     case ROCKETS_RESERVED:
-return state;
+      return state;
     default:
       return state;
   }

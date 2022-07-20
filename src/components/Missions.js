@@ -1,40 +1,42 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mission from './Mission';
-import showSpaceMissions from '../redux/missions/missonsThunkFunc';
+import { getMissions } from '../redux/missions/missions';
 
 const Missions = () => {
   const dispatch = useDispatch();
 
   // reading state from the store with useSelector
-  const Missions = useSelector((state) => state.missions);
+  const Missions = useSelector((state) => state.Missions);
 
   // show all missions
   useEffect(() => {
-    dispatch(showSpaceMissions());
+    dispatch(getMissions());
   }, []);
 
   return (
-    <table className="table">
-      <thead className="table-head">
-        <tr>
-          <th>Mission</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th label="Empty" />
-        </tr>
-      </thead>
-      <tbody className="table-body">
-        {Missions.map((mission) => (
-          <Mission
-            key={mission.mission_id}
-            id={mission.mission_id}
-            reserved={mission.reserved}
-            mission={mission}
-          />
-        ))}
-      </tbody>
-    </table>
+    <>
+      <table className="table">
+        <thead className="table-head">
+          <tr>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th label="Empty" />
+          </tr>
+        </thead>
+        <tbody className="table-body">
+          {Missions.map((mission) => (
+            <Mission
+              key={mission.mission_id}
+              id={mission.mission_id}
+              reserved={mission.reserved}
+              mission={mission}
+            />
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 

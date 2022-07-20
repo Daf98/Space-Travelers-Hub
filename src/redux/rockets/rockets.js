@@ -1,5 +1,3 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
 // Actions
 const ROCKETS_FETCHED = 'space-travelers-hub/rockets/ROCKETS_FETCHED';
 const ROCKETS_RESERVED = 'space-travelers-hub/rockets/ROCKETS_RESERVED';
@@ -31,20 +29,14 @@ const rocketsReducer = (state = initialState, action) => {
       return action.payload;
     case ROCKETS_RESERVED:
       resState = state.map((item) => {
-        if (item.id !== action.id) {
-          return item;
-        } if (item.id === action.id) {
-          return { ...item, reserved: true };
-        }
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: true };
       });
       return resState;
     case ROCKETS_CANCELLED:
       resState = state.map((item) => {
-        if (item.id !== action.id) {
-          return item;
-        } if (item.id === action.id) {
-          return { ...item, reserved: false };
-        }
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: false };
       });
       return resState;
     default:

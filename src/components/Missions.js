@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Mission from './Mission';
-import showSpaceMissions from '../redux/missions/missonsThunkFunc';
 
 const Missions = () => {
-  const dispatch = useDispatch();
-
   // reading state from the store with useSelector
   const Missions = useSelector((state) => state.missions);
-
-  // show all missions
-  useEffect(() => {
-    dispatch(showSpaceMissions());
-  }, []);
 
   return (
     <table className="table">

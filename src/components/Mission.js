@@ -1,17 +1,7 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import reserveMissions from '../redux/missions/missions';
 
 const Mission = (prop) => {
   const { mission, id, reserved } = prop;
-  const dispatch = useDispatch();
-
-  const handleReserved = (e) => {
-    const reserve = e.target.getAttribute('data-reserved');
-    const missionId = e.target.getAttribute('data-Id');
-    dispatch(reserveMissions(missionId, reserve));
-  };
-
   return (
     <tr id="table-content-row">
       <td className="mission-title">{mission.mission_name}</td>
@@ -37,7 +27,6 @@ const Mission = (prop) => {
             mission_id={id}
             data_id={id}
             data-reserved={0}
-            onClick={handleReserved}
           >
             Leave Mission
           </button>
@@ -48,7 +37,6 @@ const Mission = (prop) => {
             mission_id={id}
             data_id={id}
             data-reserved={1}
-            onClick={handleReserved}
           >
             Join Mission
           </button>

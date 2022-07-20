@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   cancelMission,
   fetchMissions,
-  reserveMission,
+  reserveMission
 } from '../redux/missions/missions';
 import './styles/Missions.css';
 
@@ -15,7 +15,9 @@ const Missions = () => {
 
   // show all missions
   useEffect(() => {
-    dispatch(fetchMissions());
+    if (!Missions.length) {
+      dispatch(fetchMissions());
+    }
   }, [dispatch]);
 
   return (

@@ -11,6 +11,8 @@
   --dark: #000;
   --light: #fff;
   --blue: #0290ff;
+  --light-gray: #fafafa;
+  --mid-gray: rgb(165, 161, 161);
 }
 
 body {

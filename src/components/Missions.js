@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMissions } from '../redux/missions/missions';
 import MissionItem from './MissionItem';
+import './styles/Missions.css';
 
 const Missions = () => {
   const dispatch = useDispatch();

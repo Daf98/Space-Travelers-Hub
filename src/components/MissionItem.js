@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { reserveMissions } from '../redux/missions/missions';
+import './styles/Missions.css';
 
 const MissionItem = (props) => {
   const {
@@ -16,7 +17,7 @@ const MissionItem = (props) => {
   };
 
   return (
-    <tr key={id}>
+    <tr key={id} className="missions">
       <td>{name}</td>
       <td>{description}</td>
 

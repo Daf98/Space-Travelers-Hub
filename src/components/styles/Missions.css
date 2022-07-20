@@ -1,0 +1,24 @@
+table {
+  margin: 10px 20px;
+}
+
+table,
+td,
+tr {
+  border: 1px solid var(--mid-gray);
+}
+
+.missions {
+  background-color: var(--light-gray);
+  color: var(--dark);
+}
+
+.missions:nth-of-type(odd) {
+  background-color: var(--light);
+}
+
+@media only screen and (min-width: 768px) {
+  table {
+    margin: 10px 5px 10px 5px;
+  }
+}

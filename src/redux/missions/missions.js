@@ -1,6 +1,7 @@
 // Actions
 const SPACE_MISSIONS = 'SpaceTravelers/Missions/SPACE_MISSIONS';
 const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
+const URL = 'https://api.spacexdata.com/v3';
 
 // Action creators
 export const reserveMissions = (id, status) => ({
@@ -18,7 +19,6 @@ export const getMissions = (missions) => ({
 
 // get missions from the API
 
-const URL = 'https://api.spacexdata.com/v3';
 export const fetchMissions = () => async (dispatch) => {
   const arrayOfMissions = await fetch(`${URL}/missions/`)
     .then((res) => res.json())

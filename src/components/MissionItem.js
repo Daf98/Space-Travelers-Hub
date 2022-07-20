@@ -19,7 +19,10 @@ const MissionItem = (props) => {
       </td>
 
       <td>
-        <button type="button" className={reserved ? 'leaveMission' : ''}>
+        <button
+          type="button"
+          className={reserved ? 'leaveMission' : 'joinMission'}
+        >
           {reserved ? 'Leave Mission' : 'Join Mission'}
         </button>
       </td>

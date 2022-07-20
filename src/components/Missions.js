@@ -22,7 +22,9 @@ const Missions = () => {
           <th>Mission</th>
           <th>Description</th>
           <th>Status</th>
-          <th label="Empty" />
+          <th>
+            <div />
+          </th>
         </tr>
       </thead>
       <tbody className="table-body">

@@ -12,7 +12,8 @@
   --dark-bg: rgba(0, 0, 0, 0.384);
   --light: #fff;
   --blue: #0290ff;
-  --light-gray: #fafafa;
+  --light-gray: #f2f2f2;
+  --border: #dfe0e2;
   --mid-gray: rgb(165, 161, 161);
   --warning: rgba(255, 0, 0, 0.363);
   --active: rgb(25, 128, 128);

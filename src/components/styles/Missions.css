@@ -1,24 +1,44 @@
 table {
-  margin: 10px 20px;
-}
-
-table,
-td,
-tr {
+  width: 90%;
   border: 1px solid var(--mid-gray);
+  border-radius: 0.1rem;
+  margin: 1rem 0 0 3rem;
+  border-collapse: collapse;
 }
 
-.missions {
+tbody tr:nth-child(odd) {
   background-color: var(--light-gray);
   color: var(--dark);
 }
 
-.missions:nth-of-type(odd) {
+button {
   background-color: var(--light);
+  width: max-content;
+  padding: 0.3rem;
+  border: 1.5px solid var(--dark-bg);
+  border-radius: 0.1rem;
+  margin: 1rem;
 }
 
-@media only screen and (min-width: 768px) {
-  table {
-    margin: 10px 5px 10px 5px;
-  }
+span {
+  display: inline-block;
+  width: max-content;
+  border: 1.5px solid var(--dark-bg);
+  margin: 0.8rem;
+  padding: 0.1rem;
+  color: var(--light);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.notMember {
+  background-color: var(--mid-gray);
+}
+
+.activeMember {
+  background-color: var(--active);
+}
+
+.leaveMission {
+  color: var(--warning);
 }

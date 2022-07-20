@@ -1,42 +1,41 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Mission from './Mission';
-import { getMissions } from '../redux/missions/missions';
+import { fetchMissions } from '../redux/missions/missions';
+import MissionItem from './MissionItem';
 
 const Missions = () => {
   const dispatch = useDispatch();
-
   // reading state from the store with useSelector
   const Missions = useSelector((state) => state.Missions);
+  const reserved = false;
 
   // show all missions
   useEffect(() => {
-    dispatch(getMissions());
-  }, []);
+    dispatch(fetchMissions());
+  }, [dispatch]);
 
   return (
-    <>
-      <table className="table">
-        <thead className="table-head">
-          <tr>
-            <th>Mission</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th label="Empty" />
-          </tr>
-        </thead>
-        <tbody className="table-body">
-          {Missions.map((mission) => (
-            <Mission
-              key={mission.mission_id}
-              id={mission.mission_id}
-              reserved={mission.reserved}
-              mission={mission}
-            />
-          ))}
-        </tbody>
-      </table>
-    </>
+    <table className="table">
+      <thead className="table-head">
+        <tr>
+          <th>Mission</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th label="Empty" />
+        </tr>
+      </thead>
+      <tbody className="table-body">
+        {Missions.map((mission) => (
+          <MissionItem
+            key={mission.id}
+            id={mission.id}
+            name={mission.name}
+            description={mission.description}
+            reserved={reserved}
+          />
+        ))}
+      </tbody>
+    </table>
   );
 };
 

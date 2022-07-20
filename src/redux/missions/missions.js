@@ -11,25 +11,31 @@ export const reserveMissions = (id, status) => ({
   },
 });
 
+export const getMissions = (missions) => ({
+  type: SPACE_MISSIONS,
+  missions,
+});
+
 // get missions from the API
-// side effects, only as applicable
-// e.g. thunks, epics, etc
-export const getMissions = () => async (dispatch) => {
-  fetch('https://api.spacexdata.com/v3/missions')
-    .then((data) => data.json())
-    .then((data) => {
-      dispatch({ type: SPACE_MISSIONS, data });
-    });
+
+const URL = 'https://api.spacexdata.com/v3';
+export const fetchMissions = () => async (dispatch) => {
+  const arrayOfMissions = await fetch(`${URL}/missions/`)
+    .then((res) => res.json())
+    .then((data) => Object.entries(data).map((mission) => {
+      const { description } = mission[1];
+      const id = mission[1].mission_id;
+      const name = mission[1].mission_name;
+      return { id, name, description };
+    }));
+  dispatch(getMissions(arrayOfMissions));
 };
 
-// initial states
-const initialState = [];
-
 // reducer
-const missionsReducer = (state = initialState, action) => {
+const missionsReducer = (state = [], action) => {
   switch (action.type) {
     case SPACE_MISSIONS:
-      return [...state, action.data];
+      return action.missions;
 
     case RESERVATION:
       return [

@@ -20,7 +20,6 @@ const Missions = () => {
     }
   }, [dispatch]);
 
-
   return (
     <table className="table">
       <thead className="table-head">

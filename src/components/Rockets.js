@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reserveRocket, cancelRocket } from '../redux/rockets/rockets';
 import './styles/Rockets.css';
+import fetchRocketsFromAPI from '../redux/api';
 
 const Rockets = () => {
   const dispatch = useDispatch();
   const rockets = useSelector((state) => state.Rockets);
+  useEffect(() => {
+    if (!rockets.length) {
+      dispatch(fetchRocketsFromAPI());
+    }
+  }, []);
   return (
     <div>
       {rockets.map((rocket) => (

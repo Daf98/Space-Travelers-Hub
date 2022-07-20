@@ -1,14 +1,14 @@
 .rocket-container {
-    display:flex;
+  display: flex;
 }
 
 .rocket-image {
-    height: 13%;
-    width: 15%;
+  height: 13%;
+  width: 15%;
 }
 
 .rocket-description {
-    display:flex;
-    flex-direction:column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }

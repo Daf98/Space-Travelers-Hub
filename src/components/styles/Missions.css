@@ -27,7 +27,7 @@ th {
   margin: 1rem;
 }
 
-span {
+/* span {
   display: inline-block;
   width: max-content;
   border: 1.5px solid var(--dark-bg);
@@ -36,7 +36,7 @@ span {
   color: var(--light);
   font-size: 12px;
   font-weight: 700;
-}
+} */
 
 .notMember {
   background-color: var(--mid-gray);

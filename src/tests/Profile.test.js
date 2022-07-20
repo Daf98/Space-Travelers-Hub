@@ -1,10 +1,19 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import Profile from '../components/Profile';
+import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { render } from "@testing-library/react";
+import Profile from "../components/Profile";
+import store from "../redux/configureStore";
 
 describe("Jest Snapshot testing suite", () => {
   it("Matches DOM Snapshot", () => {
-    const domTree = renderer.create(<Profile />).toJSON();
-    expect(domTree).toMatchSnapshot();
+    const { container } = render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <Profile />
+        </Provider>
+      </MemoryRouter>
+    );
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

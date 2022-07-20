@@ -1,10 +1,17 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import {BrowserRouter} from 'react-router-dom';
+import { render } from '@testing-library/react';
 import Navigation from '../components/Navigation';
 
 describe("Jest Snapshot testing suite", () => {
   it("Matches DOM Snapshot", () => {
-    const domTree = renderer.create(<Navigation />).toJSON();
-    expect(domTree).toMatchSnapshot();
+    const { container } = render(
+        <BrowserRouter>
+        <Navigation />
+        </BrowserRouter>
+    )
+    expect(container.firstChild).toMatchSnapshot();
+    // const domTree = renderer.create(<Navigation />).toJSON();
+    // expect(domTree).toMatchSnapshot();
   });
 });

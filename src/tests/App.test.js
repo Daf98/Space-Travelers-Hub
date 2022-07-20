@@ -1,17 +1,19 @@
 import React from "react";
-import { MemoryRouter } from 'react-router-dom';
-import renderer from "react-test-renderer";
-import App from '../App';
+import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { render } from "@testing-library/react";
+import App from "../App";
+import store from "../redux/configureStore";
 
-describe('Body of the whole App', () => {
-    it('renders correctly', () => {
-      const tree = renderer
-        .create(
-          <MemoryRouter>
-            <App />
-          </MemoryRouter>,
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    })
+describe("Jest Snapshot testing suite", () => {
+  it("Matches DOM Snapshot", () => {
+    const { container } = render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </MemoryRouter>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

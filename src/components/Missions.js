@@ -1,10 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Mission from './Mission';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMissions } from '../redux/missions/missions';
+import MissionItem from './MissionItem';
+import './styles/Missions.css';
 
 const Missions = () => {
+  const dispatch = useDispatch();
   // reading state from the store with useSelector
-  const Missions = useSelector((state) => state.missions);
+  const Missions = useSelector((state) => state.Missions);
+  const reserved = false;
+
+  // show all missions
+  useEffect(() => {
+    dispatch(fetchMissions());
+  }, [dispatch]);
 
   return (
     <table className="table">
@@ -18,11 +27,12 @@ const Missions = () => {
       </thead>
       <tbody className="table-body">
         {Missions.map((mission) => (
-          <Mission
-            key={mission.mission_id}
-            id={mission.mission_id}
-            reserved={mission.reserved}
-            mission={mission}
+          <MissionItem
+            key={mission.id}
+            id={mission.id}
+            name={mission.name}
+            description={mission.description}
+            reserved={reserved}
           />
         ))}
       </tbody>

@@ -9,8 +9,13 @@
 
 *:root {
   --dark: #000;
+  --dark-bg: rgba(0, 0, 0, 0.384);
   --light: #fff;
   --blue: #0290ff;
+  --light-gray: #fafafa;
+  --mid-gray: rgb(165, 161, 161);
+  --warning: rgba(255, 0, 0, 0.363);
+  --active: rgb(25, 128, 128);
 }
 
 body {

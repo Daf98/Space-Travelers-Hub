@@ -1,6 +1,7 @@
 // Actions
 const SPACE_MISSIONS = 'SpaceTravelers/Missions/SPACE_MISSIONS';
 const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
+const URL = 'https://api.spacexdata.com/v3';
 
 // Action creators
 export const reserveMissions = (id, status) => ({
@@ -11,19 +12,30 @@ export const reserveMissions = (id, status) => ({
   },
 });
 
-export const spaceMissions = (data) => ({
+export const getMissions = (missions) => ({
   type: SPACE_MISSIONS,
-  payload: data,
+  missions,
 });
 
-// initial states
-const initialState = [];
+// get missions from the API
+
+export const fetchMissions = () => async (dispatch) => {
+  const arrayOfMissions = await fetch(`${URL}/missions/`)
+    .then((res) => res.json())
+    .then((data) => Object.entries(data).map((mission) => {
+      const { description } = mission[1];
+      const id = mission[1].mission_id;
+      const name = mission[1].mission_name;
+      return { id, name, description };
+    }));
+  dispatch(getMissions(arrayOfMissions));
+};
 
 // reducer
-const missionsReducer = (state = initialState, action) => {
+const missionsReducer = (state = [], action) => {
   switch (action.type) {
     case SPACE_MISSIONS:
-      return [...state, action.data];
+      return action.missions;
 
     case RESERVATION:
       return [

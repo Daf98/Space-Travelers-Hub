@@ -1,15 +1,20 @@
 // Actions
 const SPACE_MISSIONS = 'SpaceTravelers/Missions/SPACE_MISSIONS';
-const RESERVATION = 'SpaceTravelers/Missions/RESERVATION';
+const MISSIONS_RESERVED = 'space-travelers-hub/rockets/MISSIONS_RESERVED';
+const MISSIONS_CANCELLED = 'space-travelers-hub/rockets/MISSIONS_CANCELLED';
+// url
 const URL = 'https://api.spacexdata.com/v3';
 
 // Action creators
-export const reserveMissions = (id, status) => ({
-  type: RESERVATION,
-  mission: {
-    id,
-    status: Boolean(Number(status)),
-  },
+
+export const reserveMission = (id) => ({
+  type: MISSIONS_RESERVED,
+  id,
+});
+
+export const cancelMission = (id) => ({
+  type: MISSIONS_CANCELLED,
+  id,
 });
 
 export const getMissions = (missions) => ({
@@ -18,34 +23,42 @@ export const getMissions = (missions) => ({
 });
 
 // get missions from the API
-
 export const fetchMissions = () => async (dispatch) => {
-  const arrayOfMissions = await fetch(`${URL}/missions/`)
-    .then((res) => res.json())
-    .then((data) => Object.entries(data).map((mission) => {
-      const { description } = mission[1];
-      const id = mission[1].mission_id;
-      const name = mission[1].mission_name;
-      return { id, name, description };
-    }));
-  dispatch(getMissions(arrayOfMissions));
+  const data = await fetch(`${URL}/missions/`);
+  const response = await data.json();
+  dispatch(
+    getMissions(
+      response.map((mission) => ({
+        id: mission.mission_id,
+        name: mission.mission_name,
+        description: mission.description,
+        reserved: false,
+      })),
+    ),
+  );
 };
 
+const initialState = [];
+let resState;
 // reducer
-const missionsReducer = (state = [], action) => {
+const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SPACE_MISSIONS:
       return action.missions;
 
-    case RESERVATION:
-      return [
-        ...state.map((mission) => {
-          if (mission.mission_id === action.mission.id) {
-            return { ...mission, reserved: action.mission.status };
-          }
-          return mission;
-        }),
-      ];
+    case MISSIONS_RESERVED:
+      resState = state.map((item) => {
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: true };
+      });
+      return resState;
+    case MISSIONS_CANCELLED:
+      resState = state.map((item) => {
+        if (item.id !== action.id) return item;
+        return { ...item, reserved: false };
+      });
+      return resState;
+
     default:
       return state;
   }

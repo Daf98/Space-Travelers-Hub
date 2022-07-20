@@ -27,7 +27,8 @@ th {
   margin: 1rem;
 }
 
-span {
+.activeMember,
+.notMember {
   display: inline-block;
   width: max-content;
   border: 1.5px solid var(--dark-bg);
@@ -48,4 +49,8 @@ span {
 
 .leaveMission {
   color: var(--warning);
+}
+
+.joinMission {
+  color: var(--mid-gray);
 }

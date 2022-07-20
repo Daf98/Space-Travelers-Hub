@@ -15,7 +15,7 @@ const Profile = () => {
           {reservedMissions.length ? (
             <div className="reservation-container">
               {reservedMissions.map((mission) => (
-                <p id="reserved-rocket" key={mission.id}>
+                <p id="reserved-missions" key={mission.id}>
                   {mission.name}
                 </p>
               ))}
@@ -27,7 +27,7 @@ const Profile = () => {
           {reservedRockets.length ? (
             <div className="reservation-container">
               {reservedRockets.map((rocket) => (
-                <p id="reserved-rocket" key={rocket.id}>
+                <p id="reserved-rockets" key={rocket.id}>
                   {rocket.name}
                 </p>
               ))}

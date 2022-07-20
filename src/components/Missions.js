@@ -40,7 +40,7 @@ const Missions = () => {
 
             <td>
               <span className={mission.reserved ? 'activeMember' : 'notMember'}>
-                {mission.reserved ? 'Active Member' : 'Not A Member'}
+                {mission.reserved ? 'Active Member' : 'NOT A MEMBER'}
               </span>
             </td>
 

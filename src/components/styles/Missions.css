@@ -19,28 +19,29 @@ th {
 
 .leaveMission,
 .joinMission {
-  background-color: var(--light);
+  background-color: transparent;
   width: max-content;
   padding: 0.3rem;
   border: 1.5px solid var(--dark-bg);
-  border-radius: 0.1rem;
   margin: 1rem;
+  border-radius: 0.3rem;
 }
 
 .activeMember,
 .notMember {
   display: inline-block;
   width: max-content;
-  border: 1.5px solid var(--dark-bg);
+  border: none;
   margin: 0.8rem;
-  padding: 0.1rem;
+  padding: 0.2rem;
   color: var(--light);
   font-size: 12px;
   font-weight: 700;
+  border-radius: 0.3rem;
 }
 
 .notMember {
-  background-color: var(--mid-gray);
+  background-color: var(--lighter-gray);
 }
 
 .activeMember {
@@ -48,9 +49,11 @@ th {
 }
 
 .leaveMission {
+  border: 1px solid var(--warning);
   color: var(--warning);
 }
 
 .joinMission {
+  border: 1px solid var(--mid-gray);
   color: var(--mid-gray);
 }

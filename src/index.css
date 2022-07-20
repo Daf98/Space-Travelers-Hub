@@ -17,9 +17,9 @@
   --blue: #357bd9;
   --light-gray: #f2f2f2;
   --border: #dfe0e2;
-  --mid-gray: rgb(165, 161, 161);
-  --warning: rgba(255, 0, 0, 0.363);
-  --active: rgb(25, 128, 128);
+  --mid-gray: #585d62;
+  --warning: #da3849;
+  --active: #25a2b7;
 }
 
 body {

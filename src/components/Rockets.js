@@ -27,9 +27,8 @@ const Rockets = () => {
               {rocket.reserved ? <span id="badge">Reserved</span> : null}
               {rocket.description}
             </p>
-            {(rocket.reserved)
-              ? (<button className="cancel-btn" type="button" id={rocket.id} onClick={() => dispatch(cancelRocket(rocket.id))}>Cancel reservation</button>)
-              : (<button className="reserve-btn" type="button" id={rocket.id} onClick={() => dispatch(reserveRocket(rocket.id))}>Reserve rocket</button>)}
+            {(rocket.reserved) && (<button className="cancel-btn" type="button" id={rocket.id} onClick={() => dispatch(cancelRocket(rocket.id))}>Cancel reservation</button>)}
+            {(!rocket.reserved) && (<button className="reserve-btn" type="button" id={rocket.id} onClick={() => dispatch(reserveRocket(rocket.id))}>Reserve rocket</button>)}
           </div>
         </div>
       ))}

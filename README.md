@@ -1,5 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
-Space Travelers' Hub
+
+# Space Travelers' Hub
+![](https://i.imgur.com/2LoftlO.png)
+![](https://i.imgur.com/jyQFhlH.png)
+![](https://i.imgur.com/zoKsYZN.png)
+
+> In this page, you can reserve different rockets and missions from SpaceX to go to space!
 ## Built With
 
 - HTML, CSS, JavaScript
@@ -8,7 +14,7 @@ Space Travelers' Hub
 
 ## Live Demo
 
-[Live Demo]
+[Live Demo](https://daf98-spacehub.herokuapp.com/)
 
 ### To launch the project locally:
 #### Step 1:
@@ -37,7 +43,7 @@ Space Travelers' Hub
 
 👤 **Addisu Haile**
 
-- GitHub: [Addisu87](https://github.com/Addisu87)
+- GitHub: [@Addisu87](https://github.com/Addisu87)
 - Twitter: [@AddisuTedla](https://twitter.com/AddisuTedla)
 - LinkedIn: [Addisu Tedla](www.linkedin.com/in/addisu-tedla/)
 
@@ -48,6 +54,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
+We would like to thank [David](https://github.com/indigodavid) and [Firdavs](https://github.com/fed1k) for helping us with this project.
 
 ## 📝 License
 

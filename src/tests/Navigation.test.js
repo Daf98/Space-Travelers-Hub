@@ -11,7 +11,5 @@ describe('Jest Snapshot testing suite', () => {
       </BrowserRouter>,
     );
     expect(container.firstChild).toMatchSnapshot();
-    // const domTree = renderer.create(<Navigation />).toJSON();
-    // expect(domTree).toMatchSnapshot();
   });
 });

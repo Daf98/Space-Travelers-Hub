@@ -1,4 +1,4 @@
-## Copyright 2022, Dafne Azzolina
+## Copyright 2022, Dafne Azzolina & Addisu Haile
 
 ###### Space Travelers' Hub
 

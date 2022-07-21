@@ -8,7 +8,7 @@ describe('Jest Snapshot testing suite', () => {
     const { container } = render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(container.firstChild).toMatchSnapshot();
   });

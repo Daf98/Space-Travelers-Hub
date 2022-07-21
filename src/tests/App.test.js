@@ -12,22 +12,38 @@ describe('Jest Snapshot testing suite', () => {
         <Provider store={store}>
           <App />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('Check Telesat in the DOM', async () => {
+  it('Check Telstar in the DOM', async () => {
     render(
       <MemoryRouter>
         <Provider store={store}>
           <App />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     await waitFor(() => {
       const waitForDom = screen.findByText(
-        /Telstar 19V (Telstar 19 Vantage) is a communication satellite in the Telstar series of the Canadian satellite communications company Telesat./
+        /Telstar 19V (Telstar 19 Vantage) is a communication satellite in the Telstar series of the Canadian satellite communications company Telesat./,
+      );
+      expect(waitForDom).not.toBeNull();
+    });
+  });
+
+  it('Check Starship in the DOM', async () => {
+    render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </MemoryRouter>,
+    );
+    await waitFor(() => {
+      const waitForDom = screen.findByText(
+        /Starship and Super Heavy Rocket represent a fully reusable transportation system designed to service all Earth orbit needs as well as the Moon and Mars./,
       );
       expect(waitForDom).not.toBeNull();
     });

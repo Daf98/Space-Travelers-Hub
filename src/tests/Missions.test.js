@@ -13,7 +13,7 @@ describe('Jest Snapshot testing suite', () => {
         <Provider store={store}>
           <Missions />
         </Provider>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     expect(container.firstChild).toMatchSnapshot();
   });

@@ -9,17 +9,17 @@ const URL = 'https://api.spacexdata.com/v3/missions/';
 
 export const reserveMission = (id) => ({
   type: MISSIONS_RESERVED,
-  id
+  id,
 });
 
 export const cancelMission = (id) => ({
   type: MISSIONS_CANCELLED,
-  id
+  id,
 });
 
 export const getMissions = (missions) => ({
   type: SPACE_MISSIONS,
-  missions
+  missions,
 });
 
 // get missions from the API
@@ -32,9 +32,9 @@ export const fetchMissions = () => async (dispatch) => {
         id: mission.mission_id,
         name: mission.mission_name,
         description: mission.description,
-        reserved: false
-      }))
-    )
+        reserved: false,
+      })),
+    ),
   );
 };
 

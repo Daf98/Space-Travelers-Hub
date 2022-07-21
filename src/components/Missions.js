@@ -45,7 +45,7 @@ const Missions = () => {
             </td>
 
             <td>
-              {mission.reserved ? (
+              {(mission.reserved) && (
                 <button
                   type="button"
                   id={mission.id}
@@ -54,7 +54,8 @@ const Missions = () => {
                 >
                   Leave Mission
                 </button>
-              ) : (
+              )}
+              {(!mission.reserved) && (
                 <button
                   type="button"
                   id={mission.id}

@@ -19,12 +19,12 @@ describe('Jest Snapshot testing suite', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('Rocket Reducer Function', () => {
+  it('should return an empty state', () => {
     const newState = rocketsReducer(undefined, {});
     expect(newState).toEqual([]);
   });
 
-  it('It should return content from the rocket API', () => {
+  it('should return content from the rocket API', () => {
     const rocketAPI = fetchRocketsFromAPI();
     expect(rocketAPI).not.toEqual(null);
   });

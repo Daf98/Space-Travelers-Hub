@@ -17,7 +17,7 @@ describe('Jest Snapshot testing suite', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('Check Telstar in the DOM', async () => {
+  it('should return text from the Missions page', async () => {
     render(
       <MemoryRouter>
         <Provider store={store}>
@@ -33,7 +33,7 @@ describe('Jest Snapshot testing suite', () => {
     });
   });
 
-  it('Check Starship in the DOM', async () => {
+  it('should return text from the Rockets page', async () => {
     render(
       <MemoryRouter>
         <Provider store={store}>

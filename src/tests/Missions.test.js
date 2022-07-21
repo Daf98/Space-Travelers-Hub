@@ -18,12 +18,12 @@ describe('Jest Snapshot testing suite', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('Mission Reducer Function', () => {
+  it('should return an empty state', () => {
     const newState = missionsReducer(undefined, {});
     expect(newState).toEqual([]);
   });
 
-  it('It should return content from the API', () => {
+  it('should return content from the mission API', () => {
     const missionAPI = fetchMissions();
     expect(missionAPI).not.toEqual(null);
   });

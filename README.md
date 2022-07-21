@@ -1,14 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 # Space Travelers' Hub
-![](https://i.imgur.com/oTREpbU.png)
-![](https://i.imgur.com/s2t8Yfv.png)
-![](https://i.imgur.com/T1B54T4.png)
+![](https://i.imgur.com/2LoftlO.png)
+![](https://i.imgur.com/jyQFhlH.png)
+![](https://i.imgur.com/zoKsYZN.png)
 
 > In this page, you can reserve different rockets and missions from SpaceX to go to space!
-
-![](https://files.slack.com/files-pri/T47CT8XPG-F03QJGFSM6G/rocket-screenshot.png)
-![](https://files.slack.com/files-pri/T47CT8XPG-F03QUPBMSFK/mission-screenshot.png)
 ## Built With
 
 - HTML, CSS, JavaScript

@@ -8,10 +8,8 @@ describe('Jest Snapshot testing suite', () => {
     const { container } = render(
       <BrowserRouter>
         <Navigation />
-      </BrowserRouter>,
+      </BrowserRouter>
     );
     expect(container.firstChild).toMatchSnapshot();
-    // const domTree = renderer.create(<Navigation />).toJSON();
-    // expect(domTree).toMatchSnapshot();
   });
 });

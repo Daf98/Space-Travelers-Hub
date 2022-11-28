@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-[Live Demo](https://daf98-spacehub.herokuapp.com/)
+[Live Demo](https://jazzy-cocada-405d49.netlify.app/)
 
 ### To launch the project locally:
 #### Step 1:
